@@ -26,6 +26,11 @@
     Cache-Control = "public, max-age=86400"
 
 [[redirects]]
+  from = "/produto"
+  to = "/produto.html"
+  status = 200
+
+[[redirects]]
   from = "/movement/produto/:id"
   to = "/produto.html?id=:id"
   status = 301
