@@ -1,0 +1,35 @@
+{
+  "name": "Movement",
+  "tagline": "Streetwear atacado para lojistas",
+  "whatsapp": "5511957854965",
+  "instagram": "",
+  "email": "pedidos@movement.store",
+  "city": "São Paulo, SP",
+  "moqSame": 6,
+  "moqMix": 12,
+  "url": "https://catalogomovement.netlify.app",
+  "hours": "Seg–sex, 9h–18h",
+  "legalName": "Movement Streetwear",
+  "categories": [
+    {
+      "id": "moletom",
+      "label": "Moletom"
+    },
+    {
+      "id": "jeans",
+      "label": "Jeans"
+    },
+    {
+      "id": "camiseta",
+      "label": "Camisetas"
+    },
+    {
+      "id": "conjunto",
+      "label": "Conjuntos"
+    },
+    {
+      "id": "touca",
+      "label": "Toucas"
+    }
+  ]
+}
