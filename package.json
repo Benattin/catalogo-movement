@@ -6,6 +6,6 @@
   "scripts": {
     "build": "node scripts/build.mjs",
     "images": "python scripts/fetch-images.py",
-    "dev": "npx --yes serve dist -p 4173"
+    "dev": "npx --yes serve dist -p 4173 -c serve.json"
   }
 }
