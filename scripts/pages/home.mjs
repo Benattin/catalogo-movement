@@ -1,4 +1,5 @@
-import { esc, money, pieceMeta, prodHref, rel } from "../html.mjs";
+import { esc, prodHref, rel } from "../html.mjs";
+import { catalogBlocks, catalogChips } from "../catalog.mjs";
 import { absImg, brand, locImg, orgLd, page, products } from "../ctx.mjs";
 
 export function homePage() {
@@ -20,28 +21,10 @@ export function homePage() {
       </a>`
     )
     .join("");
-  const cards = products
-    .map((p, i) => {
-      const href = r(prodHref(p.id));
-      return `<article class="card">
-        <a href="${href}">
-          <div class="card-media">
-            ${p.soldOut ? `<span class="badge sold">Esgotado</span>` : `<span class="badge">${esc(p.line)}</span>`}
-            <img src="${locImg(path, p.hero)}" alt="${esc(p.name)} na cor ${esc(p.color)}" width="480" height="600" ${i === 0 ? 'fetchpriority="high" decoding="sync"' : 'loading="lazy" decoding="async"'}>
-            <span class="card-go">${p.soldOut ? "Ver peça" : "Ver ficha"}</span>
-          </div>
-          <div class="card-body">
-            <p class="meta">${esc(pieceMeta(p))}</p>
-            <h2>${esc(p.name)}</h2>
-            <div class="prices">
-              <span class="price-a">${money(p.atacado)} <span class="meta">atacado</span></span>
-              <span class="price-v">${money(p.varejo)} varejo</span>
-            </div>
-          </div>
-        </a>
-      </article>`;
-    })
-    .join("");
+  const blocks = catalogBlocks(products, brand, {
+    hrefOf: (p) => r(prodHref(p.id)),
+    imgOf: (p) => locImg(path, p.hero),
+  });
 
   return page({
     title: "Movement — Catálogo atacado streetwear",
@@ -102,8 +85,9 @@ export function homePage() {
     </div>
     <label class="visually-hidden" for="busca">Buscar</label>
     <input class="search" id="busca" data-search type="search" placeholder="Peça ou cor" autocomplete="off">
+    <nav class="cat-chips" aria-label="Linhas">${catalogChips(brand)}</nav>
   </div>
-  <div class="grid" data-grid>${cards}</div>
+  <div data-catalog>${blocks}</div>
   <p class="empty-cat" data-empty hidden>Nenhuma peça nesta linha.</p>
 </section>
 <section class="wrap faq" id="faq">
@@ -125,7 +109,6 @@ export function homePage() {
     <summary>As medidas conferem?</summary>
     <p>As tabelas são referência de grade. Confirme o caimento no WhatsApp antes de fechar o volume.</p>
   </details>
-</section>
-<script type="application/json" id="products-data">${JSON.stringify(products)}</script>`,
+</section>`,
   });
 }

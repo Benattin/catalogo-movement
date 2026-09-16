@@ -1,5 +1,16 @@
 (() => {
-  const site = JSON.parse(document.getElementById("site-data")?.textContent || "{}");
+  const site = window.MJ_SITE || {};
+  const ldTpl = document.getElementById("json-ld");
+  if (ldTpl) {
+    try {
+      const el = document.createElement("script");
+      el.type = "application/ld+json";
+      el.textContent = JSON.stringify(JSON.parse(ldTpl.innerHTML));
+      document.head.appendChild(el);
+    } catch {
+      /* ignore */
+    }
+  }
   const KEY = "movement-carrinho-v2";
   const MOQ_SAME = Number(site.moqSame) || 6;
   const MOQ_MIX = Number(site.moqMix) || 12;
@@ -17,16 +28,19 @@
     return Number(n).toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
   }
 
-  function pieceMeta(p) {
+  function pieceKind(p) {
     const n = String(p.name || "").toLowerCase();
-    let kind = "Peça";
-    if (n.includes("bermuda")) kind = "Bermuda";
-    else if (n.includes("blusa")) kind = "Blusa";
-    else if (n.includes("calça") || n.includes("calca")) kind = "Calça";
-    else if (n.includes("camiseta")) kind = "Camiseta";
-    else if (n.includes("conjunto")) kind = "Conjunto";
-    else if (n.includes("touca")) kind = "Touca";
-    return p.color ? `MJ ${kind} · ${p.color}` : `MJ ${kind}`;
+    if (n.includes("bermuda")) return "Bermuda";
+    if (n.includes("blusa")) return "Blusa";
+    if (n.includes("calça") || n.includes("calca")) return "Calça";
+    if (n.includes("camiseta")) return "Camiseta";
+    if (n.includes("conjunto")) return "Conjunto";
+    if (n.includes("touca")) return "Touca";
+    return "Peça";
+  }
+
+  function pieceMeta(p) {
+    return p.color ? `MJ ${pieceKind(p)} · ${p.color}` : `MJ ${pieceKind(p)}`;
   }
   function imgSrc(file) {
     const root = document.querySelector('meta[name="img-root"]')?.content || "img/";

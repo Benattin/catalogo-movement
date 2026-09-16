@@ -1,106 +1,5 @@
 [
   {
-    "id": "bermuda-jeans-movement",
-    "sku": "MJ-BER-001",
-    "name": "Bermuda Jeans Movement",
-    "category": "jeans",
-    "line": "Baggy",
-    "color": "Indigo",
-    "fit": "Baggy com pregas",
-    "atacado": 65,
-    "varejo": 84.9,
-    "soldOut": false,
-    "hero": "bermuda4.jpg",
-    "images": [
-      "bermuda4.jpg",
-      "bermuda5.jpg"
-    ],
-    "sizes": [
-      "36",
-      "38",
-      "40",
-      "42",
-      "44",
-      "46"
-    ],
-    "sizeChart": {
-      "headers": [
-        "Tam",
-        "Cintura",
-        "Quadril",
-        "Comp."
-      ],
-      "rows": [
-        [
-          "36",
-          "78",
-          "104",
-          "58"
-        ],
-        [
-          "38",
-          "82",
-          "108",
-          "59"
-        ],
-        [
-          "40",
-          "86",
-          "112",
-          "60"
-        ],
-        [
-          "42",
-          "90",
-          "116",
-          "61"
-        ],
-        [
-          "44",
-          "94",
-          "120",
-          "62"
-        ],
-        [
-          "46",
-          "98",
-          "124",
-          "63"
-        ]
-      ],
-      "note": "Medidas em cm, peça estendida. Modelo usa 42. Referência de grade; confirme as medidas no WhatsApp antes de fechar."
-    },
-    "specs": [
-      [
-        "Tecido",
-        "Jeans 100% algodão"
-      ],
-      [
-        "Lavagem",
-        "Pré-lavado"
-      ],
-      [
-        "Gramatura",
-        "12 oz"
-      ],
-      [
-        "Detalhes",
-        "Pregas frontais, bordado em alto-relevo, placa metálica"
-      ],
-      [
-        "Modelo",
-        "Veste 42"
-      ]
-    ],
-    "care": "Lavar do avesso em água fria. Não usar alvejante. Secar à sombra. Passar em temperatura média.",
-    "description": "Bermuda baggy jeans com modelagem ampla e duas pregas frontais que estruturam o caimento e trazem um detalhe de alfaiataria para o streetwear. Tem bordados em alto-relevo nos bolsos traseiros e placa metálica Movement.",
-    "related": [
-      "calca-jeans-movement",
-      "camiseta-boxy-legacy",
-      "touca-arabesco-preta"
-    ]
-  },
-  {
     "id": "blusa-moletom-mj-basic-cinza",
     "sku": "MJ-MOL-CIN-001",
     "name": "Blusa Moletom MJ Basic Cinza",
@@ -180,88 +79,6 @@
       "calca-moletom-mj-basic-cinza",
       "conjunto-moletom-basic",
       "blusa-moletom-mj-basic-preta"
-    ]
-  },
-  {
-    "id": "blusa-moletom-movement",
-    "sku": "MJ-MOL-AZU-001",
-    "name": "Blusa Moletom Movement",
-    "category": "moletom",
-    "line": "Signature",
-    "color": "Azul",
-    "fit": "Regular encorpado",
-    "atacado": 108,
-    "varejo": 141,
-    "soldOut": false,
-    "hero": "blusamoletomazul.jpg",
-    "images": [
-      "blusamoletomazul.jpg"
-    ],
-    "sizes": [
-      "P",
-      "M",
-      "G",
-      "GG"
-    ],
-    "sizeChart": {
-      "headers": [
-        "Tam",
-        "Peito",
-        "Comp.",
-        "Manga"
-      ],
-      "rows": [
-        [
-          "P",
-          "56",
-          "68",
-          "62"
-        ],
-        [
-          "M",
-          "58",
-          "70",
-          "64"
-        ],
-        [
-          "G",
-          "61",
-          "73",
-          "65"
-        ],
-        [
-          "GG",
-          "64",
-          "75",
-          "66"
-        ]
-      ],
-      "note": "Medidas em cm, peça estendida. Referência de grade; confirme as medidas no WhatsApp antes de fechar."
-    },
-    "specs": [
-      [
-        "Tecido",
-        "Moletom 3 cabos"
-      ],
-      [
-        "Conforto",
-        "Térmico, caimento premium"
-      ],
-      [
-        "Detalhes",
-        "Estampa nas costas + bordado frontal"
-      ],
-      [
-        "Cor",
-        "Azul"
-      ]
-    ],
-    "care": "Lavar do avesso em água fria. Não usar alvejante. Secar à sombra.",
-    "description": "Moletom 3 cabos, estrutura encorpada e conforto térmico. Estampa nas costas e bordado frontal — contraste de texturas da linha Signature.",
-    "related": [
-      "calca-moletom-movement",
-      "conjunto-moletom-azul",
-      "touca-arabesco-preta"
     ]
   },
   {
@@ -426,6 +243,400 @@
       "calca-moletom-mj-basic-preta",
       "conjunto-moletom-basic",
       "touca-canelada-chocolate"
+    ]
+  },
+  {
+    "id": "blusa-moletom-movement",
+    "sku": "MJ-MOL-AZU-001",
+    "name": "Blusa Moletom Movement",
+    "category": "moletom",
+    "line": "Signature",
+    "color": "Azul",
+    "fit": "Regular encorpado",
+    "atacado": 108,
+    "varejo": 141,
+    "soldOut": false,
+    "hero": "blusamoletomazul.jpg",
+    "images": [
+      "blusamoletomazul.jpg"
+    ],
+    "sizes": [
+      "P",
+      "M",
+      "G",
+      "GG"
+    ],
+    "sizeChart": {
+      "headers": [
+        "Tam",
+        "Peito",
+        "Comp.",
+        "Manga"
+      ],
+      "rows": [
+        [
+          "P",
+          "56",
+          "68",
+          "62"
+        ],
+        [
+          "M",
+          "58",
+          "70",
+          "64"
+        ],
+        [
+          "G",
+          "61",
+          "73",
+          "65"
+        ],
+        [
+          "GG",
+          "64",
+          "75",
+          "66"
+        ]
+      ],
+      "note": "Medidas em cm, peça estendida. Referência de grade; confirme as medidas no WhatsApp antes de fechar."
+    },
+    "specs": [
+      [
+        "Tecido",
+        "Moletom 3 cabos"
+      ],
+      [
+        "Conforto",
+        "Térmico, caimento premium"
+      ],
+      [
+        "Detalhes",
+        "Estampa nas costas + bordado frontal"
+      ],
+      [
+        "Cor",
+        "Azul"
+      ]
+    ],
+    "care": "Lavar do avesso em água fria. Não usar alvejante. Secar à sombra.",
+    "description": "Moletom 3 cabos, estrutura encorpada e conforto térmico. Estampa nas costas e bordado frontal — contraste de texturas da linha Signature.",
+    "related": [
+      "calca-moletom-movement",
+      "conjunto-moletom-azul",
+      "touca-arabesco-preta"
+    ]
+  },
+  {
+    "id": "calca-moletom-mj-basic-cinza",
+    "sku": "MJ-CALM-CIN-001",
+    "name": "Calça Moletom MJ Basic Cinza",
+    "category": "moletom",
+    "line": "MJ Basic",
+    "color": "Cinza",
+    "fit": "Regular",
+    "atacado": 92,
+    "varejo": 119.9,
+    "soldOut": false,
+    "hero": "calcamoletomcinza.jpg",
+    "images": [
+      "calcamoletomcinza.jpg"
+    ],
+    "sizes": [
+      "P",
+      "M",
+      "G",
+      "GG"
+    ],
+    "sizeChart": {
+      "headers": [
+        "Tam",
+        "Cintura",
+        "Quadril",
+        "Comp."
+      ],
+      "rows": [
+        [
+          "P",
+          "72",
+          "104",
+          "100"
+        ],
+        [
+          "M",
+          "76",
+          "108",
+          "102"
+        ],
+        [
+          "G",
+          "80",
+          "112",
+          "104"
+        ],
+        [
+          "GG",
+          "84",
+          "116",
+          "106"
+        ]
+      ],
+      "note": "Medidas em cm, peça estendida. Cós com cordão. Referência de grade; confirme as medidas no WhatsApp antes de fechar."
+    },
+    "specs": [
+      [
+        "Tecido",
+        "Moletom 3 cabos"
+      ],
+      [
+        "Detalhes",
+        "Recorte na perna + bordado MJ"
+      ],
+      [
+        "Conjunto",
+        "Combina com Blusa MJ Basic Cinza"
+      ]
+    ],
+    "care": "Lavar do avesso em água fria. Não torcer. Secar à sombra.",
+    "description": "Calça MJ Basic cinza com recorte na perna e bordado MJ. Moletom 3 cabos — o par da blusa Basic.",
+    "related": [
+      "blusa-moletom-mj-basic-cinza",
+      "conjunto-moletom-basic",
+      "calca-moletom-mj-basic-preta"
+    ]
+  },
+  {
+    "id": "calca-moletom-mj-basic-off-white",
+    "sku": "MJ-CALM-OFF-001",
+    "name": "Calça Moletom MJ Basic Off White",
+    "category": "moletom",
+    "line": "MJ Basic",
+    "color": "Off White",
+    "fit": "Regular",
+    "atacado": 92,
+    "varejo": 119.9,
+    "soldOut": false,
+    "hero": "calcamoletomoff.jpg",
+    "images": [
+      "calcamoletomoff.jpg"
+    ],
+    "sizes": [
+      "P",
+      "M",
+      "G",
+      "GG"
+    ],
+    "sizeChart": {
+      "headers": [
+        "Tam",
+        "Cintura",
+        "Quadril",
+        "Comp."
+      ],
+      "rows": [
+        [
+          "P",
+          "72",
+          "104",
+          "100"
+        ],
+        [
+          "M",
+          "76",
+          "108",
+          "102"
+        ],
+        [
+          "G",
+          "80",
+          "112",
+          "104"
+        ],
+        [
+          "GG",
+          "84",
+          "116",
+          "106"
+        ]
+      ],
+      "note": "Medidas em cm, peça estendida. Referência de grade; confirme as medidas no WhatsApp antes de fechar."
+    },
+    "specs": [
+      [
+        "Tecido",
+        "Moletom 3 cabos"
+      ],
+      [
+        "Detalhes",
+        "Recorte na perna + bordado MJ"
+      ],
+      [
+        "Cor",
+        "Off white"
+      ]
+    ],
+    "care": "Lavar do avesso em água fria. Separar cores claras. Secar à sombra.",
+    "description": "Calça MJ Basic off-white. Recorte na perna e bordado MJ, no mesmo moletom 3 cabos da blusa.",
+    "related": [
+      "blusa-moletom-mj-basic-off-white",
+      "conjunto-moletom-basic",
+      "camiseta-believe-always-off"
+    ]
+  },
+  {
+    "id": "calca-moletom-mj-basic-preta",
+    "sku": "MJ-CALM-PRT-001",
+    "name": "Calça Moletom MJ Basic Preta",
+    "category": "moletom",
+    "line": "MJ Basic",
+    "color": "Preto",
+    "fit": "Regular",
+    "atacado": 92,
+    "varejo": 119.9,
+    "soldOut": false,
+    "hero": "calcamoletompreta.jpg",
+    "images": [
+      "calcamoletompreta.jpg"
+    ],
+    "sizes": [
+      "P",
+      "M",
+      "G",
+      "GG"
+    ],
+    "sizeChart": {
+      "headers": [
+        "Tam",
+        "Cintura",
+        "Quadril",
+        "Comp."
+      ],
+      "rows": [
+        [
+          "P",
+          "72",
+          "104",
+          "100"
+        ],
+        [
+          "M",
+          "76",
+          "108",
+          "102"
+        ],
+        [
+          "G",
+          "80",
+          "112",
+          "104"
+        ],
+        [
+          "GG",
+          "84",
+          "116",
+          "106"
+        ]
+      ],
+      "note": "Medidas em cm, peça estendida. Referência de grade; confirme as medidas no WhatsApp antes de fechar."
+    },
+    "specs": [
+      [
+        "Tecido",
+        "Moletom 3 cabos"
+      ],
+      [
+        "Detalhes",
+        "Recorte na perna + bordado MJ"
+      ],
+      [
+        "Cor",
+        "Preto"
+      ]
+    ],
+    "care": "Lavar do avesso em água fria. Não torcer. Secar à sombra.",
+    "description": "Calça MJ Basic preta. Recorte na perna e bordado MJ — fecha o conjunto básico mais versátil da linha.",
+    "related": [
+      "blusa-moletom-mj-basic-preta",
+      "conjunto-moletom-basic",
+      "touca-canelada-chocolate"
+    ]
+  },
+  {
+    "id": "calca-moletom-movement",
+    "sku": "MJ-CALM-AZU-001",
+    "name": "Calça Moletom Movement",
+    "category": "moletom",
+    "line": "Signature",
+    "color": "Azul",
+    "fit": "Regular encorpado",
+    "atacado": 94,
+    "varejo": 122.9,
+    "soldOut": false,
+    "hero": "calcamoletomazul.jpg",
+    "images": [
+      "calcamoletomazul.jpg"
+    ],
+    "sizes": [
+      "P",
+      "M",
+      "G",
+      "GG"
+    ],
+    "sizeChart": {
+      "headers": [
+        "Tam",
+        "Cintura",
+        "Quadril",
+        "Comp."
+      ],
+      "rows": [
+        [
+          "P",
+          "72",
+          "104",
+          "100"
+        ],
+        [
+          "M",
+          "76",
+          "108",
+          "102"
+        ],
+        [
+          "G",
+          "80",
+          "112",
+          "104"
+        ],
+        [
+          "GG",
+          "84",
+          "116",
+          "106"
+        ]
+      ],
+      "note": "Medidas em cm, peça estendida. Referência de grade; confirme as medidas no WhatsApp antes de fechar."
+    },
+    "specs": [
+      [
+        "Tecido",
+        "Moletom 3 cabos"
+      ],
+      [
+        "Detalhes",
+        "Recorte na perna + bordados junto aos bolsos"
+      ],
+      [
+        "Conjunto",
+        "Combina com Blusa Moletom Movement"
+      ]
+    ],
+    "care": "Lavar do avesso em água fria. Não torcer. Secar à sombra.",
+    "description": "Calça Signature em moletom 3 cabos. Recorte na perna e bordados discretos nos bolsos. Fecha o conjunto azul.",
+    "related": [
+      "blusa-moletom-movement",
+      "conjunto-moletom-azul",
+      "touca-arabesco-preta"
     ]
   },
   {
@@ -613,25 +824,28 @@
     ]
   },
   {
-    "id": "calca-moletom-mj-basic-cinza",
-    "sku": "MJ-CALM-CIN-001",
-    "name": "Calça Moletom MJ Basic Cinza",
-    "category": "moletom",
-    "line": "MJ Basic",
-    "color": "Cinza",
-    "fit": "Regular",
-    "atacado": 92,
-    "varejo": 119.9,
+    "id": "bermuda-jeans-movement",
+    "sku": "MJ-BER-001",
+    "name": "Bermuda Jeans Movement",
+    "category": "jeans",
+    "line": "Baggy",
+    "color": "Indigo",
+    "fit": "Baggy com pregas",
+    "atacado": 65,
+    "varejo": 84.9,
     "soldOut": false,
-    "hero": "calcamoletomcinza.jpg",
+    "hero": "bermuda4.jpg",
     "images": [
-      "calcamoletomcinza.jpg"
+      "bermuda4.jpg",
+      "bermuda5.jpg"
     ],
     "sizes": [
-      "P",
-      "M",
-      "G",
-      "GG"
+      "36",
+      "38",
+      "40",
+      "42",
+      "44",
+      "46"
     ],
     "sizeChart": {
       "headers": [
@@ -642,224 +856,88 @@
       ],
       "rows": [
         [
-          "P",
-          "72",
+          "36",
+          "78",
           "104",
-          "100"
+          "58"
         ],
         [
-          "M",
-          "76",
+          "38",
+          "82",
           "108",
-          "102"
+          "59"
         ],
         [
-          "G",
-          "80",
+          "40",
+          "86",
           "112",
-          "104"
+          "60"
         ],
         [
-          "GG",
-          "84",
+          "42",
+          "90",
           "116",
-          "106"
+          "61"
+        ],
+        [
+          "44",
+          "94",
+          "120",
+          "62"
+        ],
+        [
+          "46",
+          "98",
+          "124",
+          "63"
         ]
       ],
-      "note": "Medidas em cm, peça estendida. Cós com cordão. Referência de grade; confirme as medidas no WhatsApp antes de fechar."
+      "note": "Medidas em cm, peça estendida. Modelo usa 42. Referência de grade; confirme as medidas no WhatsApp antes de fechar."
     },
     "specs": [
       [
         "Tecido",
-        "Moletom 3 cabos"
+        "Jeans 100% algodão"
+      ],
+      [
+        "Lavagem",
+        "Pré-lavado"
+      ],
+      [
+        "Gramatura",
+        "12 oz"
       ],
       [
         "Detalhes",
-        "Recorte na perna + bordado MJ"
+        "Pregas frontais, bordado em alto-relevo, placa metálica"
       ],
       [
-        "Conjunto",
-        "Combina com Blusa MJ Basic Cinza"
+        "Modelo",
+        "Veste 42"
       ]
     ],
-    "care": "Lavar do avesso em água fria. Não torcer. Secar à sombra.",
-    "description": "Calça MJ Basic cinza com recorte na perna e bordado MJ. Moletom 3 cabos — o par da blusa Basic.",
+    "care": "Lavar do avesso em água fria. Não usar alvejante. Secar à sombra. Passar em temperatura média.",
+    "description": "Bermuda baggy jeans com modelagem ampla e duas pregas frontais que estruturam o caimento e trazem um detalhe de alfaiataria para o streetwear. Tem bordados em alto-relevo nos bolsos traseiros e placa metálica Movement.",
     "related": [
-      "blusa-moletom-mj-basic-cinza",
-      "conjunto-moletom-basic",
-      "calca-moletom-mj-basic-preta"
-    ]
-  },
-  {
-    "id": "calca-moletom-movement",
-    "sku": "MJ-CALM-AZU-001",
-    "name": "Calça Moletom Movement",
-    "category": "moletom",
-    "line": "Signature",
-    "color": "Azul",
-    "fit": "Regular encorpado",
-    "atacado": 94,
-    "varejo": 122.9,
-    "soldOut": false,
-    "hero": "calcamoletomazul.jpg",
-    "images": [
-      "calcamoletomazul.jpg"
-    ],
-    "sizes": [
-      "P",
-      "M",
-      "G",
-      "GG"
-    ],
-    "sizeChart": {
-      "headers": [
-        "Tam",
-        "Cintura",
-        "Quadril",
-        "Comp."
-      ],
-      "rows": [
-        [
-          "P",
-          "72",
-          "104",
-          "100"
-        ],
-        [
-          "M",
-          "76",
-          "108",
-          "102"
-        ],
-        [
-          "G",
-          "80",
-          "112",
-          "104"
-        ],
-        [
-          "GG",
-          "84",
-          "116",
-          "106"
-        ]
-      ],
-      "note": "Medidas em cm, peça estendida. Referência de grade; confirme as medidas no WhatsApp antes de fechar."
-    },
-    "specs": [
-      [
-        "Tecido",
-        "Moletom 3 cabos"
-      ],
-      [
-        "Detalhes",
-        "Recorte na perna + bordados junto aos bolsos"
-      ],
-      [
-        "Conjunto",
-        "Combina com Blusa Moletom Movement"
-      ]
-    ],
-    "care": "Lavar do avesso em água fria. Não torcer. Secar à sombra.",
-    "description": "Calça Signature em moletom 3 cabos. Recorte na perna e bordados discretos nos bolsos. Fecha o conjunto azul.",
-    "related": [
-      "blusa-moletom-movement",
-      "conjunto-moletom-azul",
+      "calca-jeans-movement",
+      "camiseta-boxy-legacy",
       "touca-arabesco-preta"
     ]
   },
   {
-    "id": "calca-moletom-mj-basic-off-white",
-    "sku": "MJ-CALM-OFF-001",
-    "name": "Calça Moletom MJ Basic Off White",
-    "category": "moletom",
-    "line": "MJ Basic",
-    "color": "Off White",
-    "fit": "Regular",
-    "atacado": 92,
-    "varejo": 119.9,
-    "soldOut": false,
-    "hero": "calcamoletomoff.jpg",
-    "images": [
-      "calcamoletomoff.jpg"
-    ],
-    "sizes": [
-      "P",
-      "M",
-      "G",
-      "GG"
-    ],
-    "sizeChart": {
-      "headers": [
-        "Tam",
-        "Cintura",
-        "Quadril",
-        "Comp."
-      ],
-      "rows": [
-        [
-          "P",
-          "72",
-          "104",
-          "100"
-        ],
-        [
-          "M",
-          "76",
-          "108",
-          "102"
-        ],
-        [
-          "G",
-          "80",
-          "112",
-          "104"
-        ],
-        [
-          "GG",
-          "84",
-          "116",
-          "106"
-        ]
-      ],
-      "note": "Medidas em cm, peça estendida. Referência de grade; confirme as medidas no WhatsApp antes de fechar."
-    },
-    "specs": [
-      [
-        "Tecido",
-        "Moletom 3 cabos"
-      ],
-      [
-        "Detalhes",
-        "Recorte na perna + bordado MJ"
-      ],
-      [
-        "Cor",
-        "Off white"
-      ]
-    ],
-    "care": "Lavar do avesso em água fria. Separar cores claras. Secar à sombra.",
-    "description": "Calça MJ Basic off-white. Recorte na perna e bordado MJ, no mesmo moletom 3 cabos da blusa.",
-    "related": [
-      "blusa-moletom-mj-basic-off-white",
-      "conjunto-moletom-basic",
-      "camiseta-believe-always-off"
-    ]
-  },
-  {
-    "id": "calca-moletom-mj-basic-preta",
-    "sku": "MJ-CALM-PRT-001",
-    "name": "Calça Moletom MJ Basic Preta",
-    "category": "moletom",
-    "line": "MJ Basic",
+    "id": "camiseta-believe-always-preta",
+    "sku": "MJ-TEE-BLV-PRT",
+    "name": "Camiseta Believe Always Preta",
+    "category": "camiseta",
+    "line": "Believe",
     "color": "Preto",
-    "fit": "Regular",
-    "atacado": 92,
-    "varejo": 119.9,
+    "fit": "Oversized",
+    "atacado": 62.9,
+    "varejo": 81.9,
     "soldOut": false,
-    "hero": "calcamoletompreta.jpg",
+    "hero": "believe-preta.webp",
     "images": [
-      "calcamoletompreta.jpg"
+      "believe-preta.webp"
     ],
     "sizes": [
       "P",
@@ -870,59 +948,60 @@
     "sizeChart": {
       "headers": [
         "Tam",
-        "Cintura",
-        "Quadril",
-        "Comp."
+        "Peito",
+        "Comp.",
+        "Ombro"
       ],
       "rows": [
         [
           "P",
-          "72",
-          "104",
-          "100"
+          "58",
+          "70",
+          "54"
         ],
         [
           "M",
-          "76",
-          "108",
-          "102"
+          "60",
+          "72",
+          "56"
         ],
         [
           "G",
-          "80",
-          "112",
-          "104"
+          "63",
+          "74",
+          "58"
         ],
         [
           "GG",
-          "84",
-          "116",
-          "106"
+          "66",
+          "76",
+          "60"
         ]
       ],
-      "note": "Medidas em cm, peça estendida. Referência de grade; confirme as medidas no WhatsApp antes de fechar."
+      "note": "Caimento oversized. Medidas em cm. Referência de grade; confirme as medidas no WhatsApp antes de fechar."
     },
     "specs": [
       [
         "Tecido",
-        "Moletom 3 cabos"
+        "Malhão premium"
       ],
       [
-        "Detalhes",
-        "Recorte na perna + bordado MJ"
+        "Estampa",
+        "Silk + bordado"
       ],
       [
-        "Cor",
-        "Preto"
+        "Caimento",
+        "Oversized"
       ]
     ],
-    "care": "Lavar do avesso em água fria. Não torcer. Secar à sombra.",
-    "description": "Calça MJ Basic preta. Recorte na perna e bordado MJ — fecha o conjunto básico mais versátil da linha.",
+    "care": "Lavar do avesso em água fria. Não passar sobre a estampa.",
+    "description": "Oversized em malhão premium. Silk de alta qualidade e bordado — do básico ao look street completo.",
     "related": [
-      "blusa-moletom-mj-basic-preta",
-      "conjunto-moletom-basic",
+      "camiseta-boxy-legacy",
+      "calca-jeans-movement",
       "touca-canelada-chocolate"
-    ]
+    ],
+    "photoNote": "Foto de estúdio; confirme no WhatsApp."
   },
   {
     "id": "camiseta-boxy-legacy",
@@ -1081,85 +1160,6 @@
       "camiseta-believe-always-preta",
       "camiseta-boxy-legacy",
       "blusa-moletom-mj-basic-off-white"
-    ],
-    "photoNote": "Foto de estúdio; confirme no WhatsApp."
-  },
-  {
-    "id": "camiseta-believe-always-preta",
-    "sku": "MJ-TEE-BLV-PRT",
-    "name": "Camiseta Believe Always Preta",
-    "category": "camiseta",
-    "line": "Believe",
-    "color": "Preto",
-    "fit": "Oversized",
-    "atacado": 62.9,
-    "varejo": 81.9,
-    "soldOut": false,
-    "hero": "believe-preta.webp",
-    "images": [
-      "believe-preta.webp"
-    ],
-    "sizes": [
-      "P",
-      "M",
-      "G",
-      "GG"
-    ],
-    "sizeChart": {
-      "headers": [
-        "Tam",
-        "Peito",
-        "Comp.",
-        "Ombro"
-      ],
-      "rows": [
-        [
-          "P",
-          "58",
-          "70",
-          "54"
-        ],
-        [
-          "M",
-          "60",
-          "72",
-          "56"
-        ],
-        [
-          "G",
-          "63",
-          "74",
-          "58"
-        ],
-        [
-          "GG",
-          "66",
-          "76",
-          "60"
-        ]
-      ],
-      "note": "Caimento oversized. Medidas em cm. Referência de grade; confirme as medidas no WhatsApp antes de fechar."
-    },
-    "specs": [
-      [
-        "Tecido",
-        "Malhão premium"
-      ],
-      [
-        "Estampa",
-        "Silk + bordado"
-      ],
-      [
-        "Caimento",
-        "Oversized"
-      ]
-    ],
-    "care": "Lavar do avesso em água fria. Não passar sobre a estampa.",
-    "description": "Oversized em malhão premium. Silk de alta qualidade e bordado — do básico ao look street completo.",
-    "related": [
-      "camiseta-boxy-legacy",
-      "calca-jeans-movement",
-      "touca-canelada-chocolate"
     ],
     "photoNote": "Foto de estúdio; confirme no WhatsApp."
   },
@@ -1369,61 +1369,6 @@
     ]
   },
   {
-    "id": "touca-canelada-bege",
-    "sku": "MJ-TOU-CAN-BEG",
-    "name": "Touca Canelada Bege",
-    "category": "touca",
-    "line": "Canelada",
-    "color": "Bege",
-    "fit": "Único",
-    "atacado": 19.9,
-    "varejo": 29.9,
-    "soldOut": true,
-    "hero": "toucabege.jpg",
-    "images": [
-      "toucabege.jpg"
-    ],
-    "sizes": [
-      "Único"
-    ],
-    "sizeChart": {
-      "headers": [
-        "Tam",
-        "Circunferência",
-        "Altura"
-      ],
-      "rows": [
-        [
-          "Único",
-          "54–58",
-          "22"
-        ]
-      ],
-      "note": "Modelo lenhador. Esgotada. Referência de grade; confirme as medidas no WhatsApp antes de fechar."
-    },
-    "specs": [
-      [
-        "Tecido",
-        "100% acrílico"
-      ],
-      [
-        "Detalhes",
-        "Modelo lenhador + placa metálica"
-      ],
-      [
-        "Status",
-        "Esgotado"
-      ]
-    ],
-    "care": "Lavar à mão em água fria. Secar na horizontal.",
-    "description": "Touca lenhador canelada com placa metálica. Esgotada — avise no pedido se quiser reposição.",
-    "related": [
-      "touca-canelada-chocolate",
-      "touca-arabesco-preta",
-      "blusa-moletom-mj-basic-off-white"
-    ]
-  },
-  {
     "id": "touca-canelada-chocolate",
     "sku": "MJ-TOU-CAN-CHO",
     "name": "Touca Canelada Chocolate",
@@ -1476,6 +1421,61 @@
       "touca-arabesco-preta",
       "blusa-moletom-mj-basic-preta",
       "camiseta-believe-always-preta"
+    ]
+  },
+  {
+    "id": "touca-canelada-bege",
+    "sku": "MJ-TOU-CAN-BEG",
+    "name": "Touca Canelada Bege",
+    "category": "touca",
+    "line": "Canelada",
+    "color": "Bege",
+    "fit": "Único",
+    "atacado": 19.9,
+    "varejo": 29.9,
+    "soldOut": true,
+    "hero": "toucabege.jpg",
+    "images": [
+      "toucabege.jpg"
+    ],
+    "sizes": [
+      "Único"
+    ],
+    "sizeChart": {
+      "headers": [
+        "Tam",
+        "Circunferência",
+        "Altura"
+      ],
+      "rows": [
+        [
+          "Único",
+          "54–58",
+          "22"
+        ]
+      ],
+      "note": "Modelo lenhador. Esgotada. Referência de grade; confirme as medidas no WhatsApp antes de fechar."
+    },
+    "specs": [
+      [
+        "Tecido",
+        "100% acrílico"
+      ],
+      [
+        "Detalhes",
+        "Modelo lenhador + placa metálica"
+      ],
+      [
+        "Status",
+        "Esgotado"
+      ]
+    ],
+    "care": "Lavar à mão em água fria. Secar na horizontal.",
+    "description": "Touca lenhador canelada com placa metálica. Esgotada — avise no pedido se quiser reposição.",
+    "related": [
+      "touca-canelada-chocolate",
+      "touca-arabesco-preta",
+      "blusa-moletom-mj-basic-off-white"
     ]
   }
 ]

@@ -1,6 +1,7 @@
 import { mkdirSync, readdirSync, rmSync } from "node:fs";
 import { join } from "node:path";
 import { brand, copy, dist, products, root, write } from "./ctx.mjs";
+import { sitePayload } from "./html.mjs";
 import { homePage } from "./pages/home.mjs";
 import { notFoundPage, pedidoPage, privacidadePage, productPage, sobrePage } from "./pages/site.mjs";
 
@@ -13,6 +14,8 @@ write("pedido.html", pedidoPage());
 write("sobre.html", sobrePage());
 write("privacidade.html", privacidadePage());
 write("404.html", notFoundPage());
+write("assets/products.json", JSON.stringify(products, null, 2) + "\n");
+write("assets/site.js", `window.MJ_SITE = ${JSON.stringify(sitePayload(brand), null, 2)};\n`);
 
 copy("src/css/styles.css", "assets/styles.css");
 copy("src/js/cart.js", "assets/cart.js");
@@ -22,6 +25,7 @@ copy("src/js/product.js", "assets/product.js");
 copy("src/js/pedido.js", "assets/pedido.js");
 copy("public/favicon.svg", "favicon.svg");
 copy("public/brand/arabesco.png", "brand/arabesco.png");
+copy("serve.json", "serve.json");
 for (const file of readdirSync(join(root, "public/img"))) {
   if (!/\.webp$/i.test(file)) continue;
   copy(`public/img/${file}`, `img/${file}`);

@@ -60,6 +60,31 @@ export function pieceMeta(p) {
   return `MJ ${pieceKind(p)} · ${p.color}`;
 }
 
+const KIND_ORDER = ["Blusa", "Calça", "Bermuda", "Camiseta", "Conjunto", "Touca", "Peça"];
+
+export function sortProducts(list, categories) {
+  const catRank = Object.fromEntries((categories || []).map((c, i) => [c.id, i]));
+  const kindRank = Object.fromEntries(KIND_ORDER.map((k, i) => [k, i]));
+  return [...list].sort((a, b) => {
+    const cat = (catRank[a.category] ?? 99) - (catRank[b.category] ?? 99);
+    if (cat) return cat;
+    const kind = (kindRank[pieceKind(a)] ?? 99) - (kindRank[pieceKind(b)] ?? 99);
+    if (kind) return kind;
+    if (!!a.soldOut !== !!b.soldOut) return a.soldOut ? 1 : -1;
+    return String(a.name).localeCompare(String(b.name), "pt-BR");
+  });
+}
+
+export function sitePayload(brand) {
+  const cats = (brand.categories || []).filter((c) => c.id && c.id !== "todos");
+  return {
+    whatsapp: brand.whatsapp,
+    moqSame: brand.moqSame,
+    moqMix: brand.moqMix,
+    categories: [{ id: "todos", label: "Coleção" }, ...cats],
+  };
+}
+
 function wordmark(home, ornament) {
   const fl = (side) =>
     `<img class="flourish flourish-${side}" src="${ornament}" alt="" width="80" height="42" aria-hidden="true">`;
@@ -85,12 +110,6 @@ export function layout({ brand, title, description, path, image, jsonLd, extraHe
   const footCats = cats
     .map((c) => `<p><a href="${home}#${c.id}">${esc(c.label)}</a></p>`)
     .join("");
-  const siteData = JSON.stringify({
-    whatsapp: brand.whatsapp,
-    moqSame: brand.moqSame,
-    moqMix: brand.moqMix,
-    categories: [{ id: "todos", label: "Coleção" }, ...cats],
-  });
 
   return `<!DOCTYPE html>
 <html lang="pt-BR">
@@ -117,8 +136,8 @@ export function layout({ brand, title, description, path, image, jsonLd, extraHe
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="${r("assets/styles.css")}">
 <meta name="img-root" content="${r("img/")}">
+<meta name="products-src" content="${r("assets/products.json")}">
 ${extraHead}
-<script type="application/ld+json">${JSON.stringify(jsonLd)}</script>
 </head>
 <body>
 <a class="skip" href="#conteudo">Ir para o conteúdo</a>
@@ -168,7 +187,8 @@ ${extraHead}
     </div>
   </footer>
 </div>
-<script type="application/json" id="site-data">${siteData}</script>
+<template id="json-ld">${JSON.stringify(jsonLd)}</template>
+<script src="${r("assets/site.js")}"></script>
 <script src="${r("assets/cart.js")}"></script>
 <script src="${r("assets/nav.js")}" defer></script>
 ${script ? `<script src="${r(script)}" defer></script>` : ""}
