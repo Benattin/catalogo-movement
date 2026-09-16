@@ -14,7 +14,7 @@ write("pedido.html", pedidoPage());
 write("sobre.html", sobrePage());
 write("privacidade.html", privacidadePage());
 write("404.html", notFoundPage());
-write("assets/products.json", JSON.stringify(products, null, 2) + "\n");
+write("data/products.json", JSON.stringify(products, null, 2) + "\n");
 write("assets/site.js", `window.MJ_SITE = ${JSON.stringify(sitePayload(brand), null, 2)};\n`);
 
 copy("src/css/styles.css", "assets/styles.css");
