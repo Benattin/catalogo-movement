@@ -138,7 +138,7 @@
       els.forEach((el) => {
         el.textContent = String(n);
         const wrap = el.closest("a");
-        if (wrap) wrap.setAttribute("aria-label", n ? `Pedido, ${n} ${n === 1 ? "peça" : "peças"}` : "Pedido");
+        if (wrap) wrap.setAttribute("aria-label", n ? `Carrinho, ${n} ${n === 1 ? "peça" : "peças"}` : "Carrinho");
       });
     };
     paint();

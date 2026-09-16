@@ -129,13 +129,15 @@ h1, h2, h3 { margin: 0; line-height: 1.08; }
   padding: 0;
   border: 1px solid var(--gold);
   color: var(--gold);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  font-size: 10px;
-  line-height: 1;
-  text-align: center;
   background: transparent;
   flex-shrink: 0;
+}
+.menu-icon {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: currentColor;
+  box-shadow: 0 -6px 0 currentColor, 0 6px 0 currentColor;
 }
 
 .rail {
@@ -1063,7 +1065,6 @@ h1, h2, h3 { margin: 0; line-height: 1.08; }
     width: 44px;
     height: 44px;
     padding: 0;
-    text-indent: 0.12em;
   }
   .topbar .wordmark {
     min-width: 0;
