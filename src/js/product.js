@@ -293,7 +293,7 @@
     if (note) {
       note.hidden = false;
       const total = qtyTotal();
-      note.textContent = `Na grade: ${total} ${total === 1 ? "peça" : "peças"}. Abra Pedido no menu.`;
+      note.textContent = `Na grade: ${total} ${total === 1 ? "peça" : "peças"}. Abra o Carrinho no menu.`;
     }
   });
 

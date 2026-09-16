@@ -124,16 +124,18 @@ ${extraHead}
     ${nav}
     <a href="${r("sobre.html")}" data-page="sobre" ${onSobre ? 'aria-current="page"' : ""}><span class="n">${String(cats.length + 2).padStart(2, "0")}</span>A marca</a>
   </nav>
-  <a class="rail-order" href="${r("pedido.html")}" data-page="pedido" ${onPedido ? 'aria-current="page"' : ""} aria-label="Pedido">
-    Pedido <span class="cart-count" data-cart-count>0</span>
+  <a class="rail-order" href="${r("pedido.html")}" data-page="pedido" ${onPedido ? 'aria-current="page"' : ""} aria-label="Carrinho">
+    Carrinho <span class="cart-count" data-cart-count>0</span>
   </a>
   <button class="rail-close" type="button" data-close-rail>Fechar</button>
 </aside>
 <div class="stage">
   <header class="topbar">
-    <button class="menu-btn" type="button" data-open-rail aria-expanded="false" aria-controls="menu">Menu</button>
+    <button class="menu-btn" type="button" data-open-rail aria-expanded="false" aria-controls="menu" aria-label="Menu">
+      <span class="menu-icon" aria-hidden="true"></span>
+    </button>
     ${mark}
-    <a class="top-order" href="${r("pedido.html")}" aria-label="Pedido">Pedido <span class="cart-count" data-cart-count>0</span></a>
+    <a class="top-order" href="${r("pedido.html")}" aria-label="Carrinho">Carrinho <span class="cart-count" data-cart-count>0</span></a>
   </header>
   <main id="conteudo">${body}</main>
   <footer class="site-footer">
