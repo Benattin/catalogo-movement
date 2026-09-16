@@ -116,7 +116,6 @@ ${extraHead}
 </head>
 <body>
 <a class="skip" href="#conteudo">Ir para o conteúdo</a>
-<button class="menu-btn" type="button" data-open-rail aria-expanded="false" aria-controls="menu">Menu</button>
 <div class="rail-backdrop" data-close-rail hidden></div>
 <aside class="rail" id="menu">
   ${mark}
@@ -132,6 +131,7 @@ ${extraHead}
 </aside>
 <div class="stage">
   <header class="topbar">
+    <button class="menu-btn" type="button" data-open-rail aria-expanded="false" aria-controls="menu">Menu</button>
     ${mark}
     <a class="top-order" href="${r("pedido.html")}" aria-label="Pedido">Pedido <span class="cart-count" data-cart-count>0</span></a>
   </header>
