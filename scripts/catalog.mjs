@@ -1,4 +1,4 @@
-import { esc, money, pieceMeta, prodHref } from "./html.mjs";
+import { esc, money, foldAccents, pieceMeta, prodHref } from "./html.mjs";
 
 export function catList(brand) {
   return (brand.categories || []).filter((c) => c.id && c.id !== "todos");
@@ -14,7 +14,7 @@ export function catalogChips(brand) {
 }
 
 export function productCard(p, { href, src, i = 1 }) {
-  const q = `${p.name} ${p.sku} ${p.color} ${p.line}`.toLowerCase();
+  const q = foldAccents(`${p.name} ${p.sku} ${p.color} ${p.line}`);
   return `<article class="card" data-cat="${esc(p.category)}" data-q="${esc(q)}">
         <a href="${href}">
           <div class="card-media">

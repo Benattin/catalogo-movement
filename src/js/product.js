@@ -111,8 +111,47 @@
     .join("");
 
   document.title = `${product.name} | Movement atacado`;
-  const desc = document.querySelector('meta[name="description"]');
-  if (desc) desc.setAttribute("content", product.description || "");
+  const pageUrl = new URL(`produto.html?id=${encodeURIComponent(product.id)}`, document.baseURI).href;
+  const imageUrl = new URL(imgSrc(product.hero), document.baseURI).href;
+  const descText = product.description || `${product.name} — atacado Movement`;
+  function setAttr(sel, attr, val) {
+    const el = document.querySelector(sel);
+    if (el) el.setAttribute(attr, val);
+  }
+  setAttr('meta[name="description"]', "content", descText);
+  setAttr('meta[property="og:title"]', "content", `${product.name} | Movement atacado`);
+  setAttr('meta[property="og:description"]', "content", descText);
+  setAttr('meta[property="og:image"]', "content", imageUrl);
+  setAttr('meta[property="og:url"]', "content", pageUrl);
+  setAttr('meta[property="og:type"]', "content", "product");
+  setAttr('meta[name="twitter:card"]', "content", "summary_large_image");
+  setAttr('link[rel="canonical"]', "href", pageUrl);
+  let ld = document.getElementById("product-json-ld");
+  if (!ld) {
+    ld = document.createElement("script");
+    ld.type = "application/ld+json";
+    ld.id = "product-json-ld";
+    document.head.appendChild(ld);
+  }
+  ld.textContent = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: product.name,
+    sku: product.sku,
+    image: (product.images || [product.hero]).map((f) => new URL(imgSrc(f), document.baseURI).href),
+    description: descText,
+    brand: { "@type": "Brand", name: "Movement" },
+    offers: {
+      "@type": "AggregateOffer",
+      priceCurrency: "BRL",
+      lowPrice: product.atacado,
+      highPrice: product.varejo,
+      availability: product.soldOut
+        ? "https://schema.org/OutOfStock"
+        : "https://schema.org/InStock",
+      url: pageUrl,
+    },
+  });
   const catLabel =
     (site.categories || []).find((c) => c.id === product.category)?.label || product.line;
 
@@ -145,19 +184,19 @@
       <p class="note-add" data-added hidden></p>
       <a class="btn btn-ghost light btn-full" href="pedido.html">Ver pedido</a>
     </div>
-    <div class="tabs" role="tablist">
-      <button type="button" role="tab" data-tab="specs" aria-selected="true">Ficha técnica</button>
-      <button type="button" role="tab" data-tab="chart" aria-selected="false">Medidas</button>
-      <button type="button" role="tab" data-tab="care" aria-selected="false">Cuidados</button>
+    <div class="tabs" role="tablist" aria-label="Detalhes da peça">
+      <button type="button" role="tab" id="tab-specs" data-tab="specs" aria-controls="panel-specs" aria-selected="true" tabindex="0">Ficha técnica</button>
+      <button type="button" role="tab" id="tab-chart" data-tab="chart" aria-controls="panel-chart" aria-selected="false" tabindex="-1">Medidas</button>
+      <button type="button" role="tab" id="tab-care" data-tab="care" aria-controls="panel-care" aria-selected="false" tabindex="-1">Cuidados</button>
     </div>
-    <div class="panel is-on" data-panel="specs">
-      <table class="spec"><tbody>${specs}</tbody></table>
+    <div class="panel is-on" role="tabpanel" id="panel-specs" data-panel="specs" aria-labelledby="tab-specs">
+      <div class="table-scroll"><table class="spec"><tbody>${specs}</tbody></table></div>
     </div>
-    <div class="panel" data-panel="chart">
-      <table class="chart"><thead><tr>${chartHead}</tr></thead><tbody>${chartRows}</tbody></table>
+    <div class="panel" role="tabpanel" id="panel-chart" data-panel="chart" aria-labelledby="tab-chart" hidden>
+      <div class="table-scroll"><table class="chart"><thead><tr>${chartHead}</tr></thead><tbody>${chartRows}</tbody></table></div>
       <p class="note">${esc(chart.note || "")}</p>
     </div>
-    <div class="panel" data-panel="care"><p class="desc">${esc(product.care || "")}</p></div>
+    <div class="panel" role="tabpanel" id="panel-care" data-panel="care" aria-labelledby="tab-care" hidden><p class="desc">${esc(product.care || "")}</p></div>
     <nav class="pager" aria-label="Navegação da coleção">
       <a href="${href(prev.id)}"><span>Anterior</span>${esc(prev.name)}</a>
       <a class="next" href="${href(next.id)}"><span>Próxima</span>${esc(next.name)}</a>
@@ -258,15 +297,38 @@
     }
   });
 
+  function activateTab(tab) {
+    const tabId = tab.dataset.tab;
+    const tabs = [...root.querySelectorAll("[data-tab]")];
+    tabs.forEach((t) => {
+      const on = t === tab;
+      t.setAttribute("aria-selected", String(on));
+      t.tabIndex = on ? 0 : -1;
+    });
+    root.querySelectorAll("[data-panel]").forEach((p) => {
+      const on = p.dataset.panel === tabId;
+      p.classList.toggle("is-on", on);
+      p.hidden = !on;
+    });
+    tab.focus();
+  }
+
   root.querySelectorAll("[data-tab]").forEach((tab) => {
-    tab.addEventListener("click", () => {
-      const tabId = tab.dataset.tab;
-      root.querySelectorAll("[data-tab]").forEach((t) =>
-        t.setAttribute("aria-selected", String(t === tab))
-      );
-      root.querySelectorAll("[data-panel]").forEach((p) =>
-        p.classList.toggle("is-on", p.dataset.panel === tabId)
-      );
+    tab.addEventListener("click", () => activateTab(tab));
+    tab.addEventListener("keydown", (e) => {
+      const tabs = [...root.querySelectorAll("[data-tab]")];
+      const i = tabs.indexOf(tab);
+      if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
+        e.preventDefault();
+        const dir = e.key === "ArrowRight" ? 1 : -1;
+        activateTab(tabs[(i + dir + tabs.length) % tabs.length]);
+      } else if (e.key === "Home") {
+        e.preventDefault();
+        activateTab(tabs[0]);
+      } else if (e.key === "End") {
+        e.preventDefault();
+        activateTab(tabs[tabs.length - 1]);
+      }
     });
   });
 

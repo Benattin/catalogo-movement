@@ -4,7 +4,8 @@
   const mount = document.querySelector("[data-catalog]");
   if (!mount) return;
 
-  const { site } = api;
+  const { site, foldAccents } = api;
+  const fold = foldAccents || ((s) => String(s || "").toLowerCase());
   const search = document.querySelector("[data-search]");
   const empty = document.querySelector("[data-empty]");
   const heading = document.querySelector("[data-cat-title]");
@@ -58,7 +59,7 @@
   }
 
   search?.addEventListener("input", (e) => {
-    q = e.target.value.trim().toLowerCase();
+    q = fold(e.target.value.trim());
     render();
   });
 

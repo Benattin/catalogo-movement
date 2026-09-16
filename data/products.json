@@ -12,7 +12,8 @@
     "soldOut": false,
     "hero": "blusamoletomcinza.jpg",
     "images": [
-      "blusamoletomcinza.jpg"
+      "blusamoletomcinza.jpg",
+      "calcamoletomcinza.jpg"
     ],
     "sizes": [
       "P",
@@ -94,7 +95,8 @@
     "soldOut": false,
     "hero": "blusamoletomoff.jpg",
     "images": [
-      "blusamoletomoff.jpg"
+      "blusamoletomoff.jpg",
+      "calcamoletomoff.jpg"
     ],
     "sizes": [
       "P",
@@ -176,7 +178,8 @@
     "soldOut": false,
     "hero": "blusamoletompreta.jpg",
     "images": [
-      "blusamoletompreta.jpg"
+      "blusamoletompreta.jpg",
+      "calcamoletompreta.jpg"
     ],
     "sizes": [
       "P",
@@ -258,7 +261,8 @@
     "soldOut": false,
     "hero": "blusamoletomazul.jpg",
     "images": [
-      "blusamoletomazul.jpg"
+      "blusamoletomazul.jpg",
+      "calcamoletomazul.jpg"
     ],
     "sizes": [
       "P",
@@ -340,7 +344,8 @@
     "soldOut": false,
     "hero": "calcamoletomcinza.jpg",
     "images": [
-      "calcamoletomcinza.jpg"
+      "calcamoletomcinza.jpg",
+      "blusamoletomcinza.jpg"
     ],
     "sizes": [
       "P",
@@ -418,7 +423,8 @@
     "soldOut": false,
     "hero": "calcamoletomoff.jpg",
     "images": [
-      "calcamoletomoff.jpg"
+      "calcamoletomoff.jpg",
+      "blusamoletomoff.jpg"
     ],
     "sizes": [
       "P",
@@ -496,7 +502,8 @@
     "soldOut": false,
     "hero": "calcamoletompreta.jpg",
     "images": [
-      "calcamoletompreta.jpg"
+      "calcamoletompreta.jpg",
+      "blusamoletompreta.jpg"
     ],
     "sizes": [
       "P",
@@ -574,7 +581,8 @@
     "soldOut": false,
     "hero": "calcamoletomazul.jpg",
     "images": [
-      "calcamoletomazul.jpg"
+      "calcamoletomazul.jpg",
+      "blusamoletomazul.jpg"
     ],
     "sizes": [
       "P",
@@ -652,7 +660,8 @@
     "soldOut": false,
     "hero": "calcaestampada.jpg",
     "images": [
-      "calcaestampada.jpg"
+      "calcaestampada.jpg",
+      "toucapreta.jpg"
     ],
     "sizes": [
       "36",
@@ -744,7 +753,8 @@
     "soldOut": false,
     "hero": "calcalisa3.jpg",
     "images": [
-      "calcalisa3.jpg"
+      "calcalisa3.jpg",
+      "bermuda4.jpg"
     ],
     "sizes": [
       "36",
@@ -837,7 +847,8 @@
     "hero": "bermuda4.jpg",
     "images": [
       "bermuda4.jpg",
-      "bermuda5.jpg"
+      "bermuda5.jpg",
+      "calcalisa3.jpg"
     ],
     "sizes": [
       "36",
@@ -937,7 +948,8 @@
     "soldOut": false,
     "hero": "believe-preta.webp",
     "images": [
-      "believe-preta.webp"
+      "believe-preta.webp",
+      "camisetaboxy4.jpg"
     ],
     "sizes": [
       "P",
@@ -1097,7 +1109,8 @@
     "soldOut": true,
     "hero": "believe-off.webp",
     "images": [
-      "believe-off.webp"
+      "believe-off.webp",
+      "camisetaboxy.jpg"
     ],
     "sizes": [
       "P",
@@ -1326,7 +1339,8 @@
     "soldOut": false,
     "hero": "toucapreta.jpg",
     "images": [
-      "toucapreta.jpg"
+      "toucapreta.jpg",
+      "blusamoletompreta.jpg"
     ],
     "sizes": [
       "Único"
@@ -1381,7 +1395,8 @@
     "soldOut": false,
     "hero": "toucachocolate.jpg",
     "images": [
-      "toucachocolate.jpg"
+      "toucachocolate.jpg",
+      "blusamoletomoff.jpg"
     ],
     "sizes": [
       "Único"
@@ -1436,7 +1451,8 @@
     "soldOut": true,
     "hero": "toucabege.jpg",
     "images": [
-      "toucabege.jpg"
+      "toucabege.jpg",
+      "blusamoletomcinza.jpg"
     ],
     "sizes": [
       "Único"

@@ -1,14 +1,5 @@
-export function esc(s) {
-  return String(s)
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;");
-}
-
-export function money(n) {
-  return n.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
-}
+import { esc, money, foldAccents, pieceKind, pieceMeta } from "../shared/piece.mjs";
+export { esc, money, foldAccents, pieceKind, pieceMeta };
 
 export function imgName(file) {
   const s = String(file);
@@ -42,21 +33,6 @@ export function prodHref(id) {
 
 export function homeHref(fromPath) {
   return rel(fromPath, "index.html");
-}
-
-export function pieceKind(p) {
-  const n = String(p.name || "").toLowerCase();
-  if (n.includes("bermuda")) return "Bermuda";
-  if (n.includes("blusa")) return "Blusa";
-  if (n.includes("calça") || n.includes("calca")) return "Calça";
-  if (n.includes("camiseta")) return "Camiseta";
-  if (n.includes("conjunto")) return "Conjunto";
-  if (n.includes("touca")) return "Touca";
-  return "Peça";
-}
-
-export function pieceMeta(p) {
-  return `MJ ${pieceKind(p)} · ${p.color}`;
 }
 
 const KIND_ORDER = ["Blusa", "Calça", "Bermuda", "Camiseta", "Conjunto", "Touca", "Peça"];
@@ -187,6 +163,7 @@ ${extraHead}
   </footer>
 </div>
 <template id="json-ld">${JSON.stringify(jsonLd)}</template>
+<script src="${r("assets/lib.js")}"></script>
 <script src="${r("assets/site.js")}"></script>
 <script src="${r("assets/cart.js")}"></script>
 <script src="${r("assets/nav.js")}" defer></script>

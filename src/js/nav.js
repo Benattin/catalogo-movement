@@ -11,12 +11,15 @@
     document.body.classList.toggle("nav-open", open);
   }
 
-  openBtn?.addEventListener("click", () => setOpen(!rail.classList.contains("is-open")));
+  openBtn?.addEventListener("click", () => setOpen(!rail?.classList.contains("is-open")));
   document.querySelectorAll("[data-close-rail]").forEach((el) => {
     el.addEventListener("click", () => setOpen(false));
   });
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") setOpen(false);
+  });
+  window.addEventListener("resize", () => {
+    if (window.matchMedia("(min-width: 961px)").matches) setOpen(false);
   });
 
   function markNav() {
