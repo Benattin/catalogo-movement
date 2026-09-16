@@ -37,9 +37,9 @@ write(
   `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url><loc>${brand.url}/</loc><changefreq>weekly</changefreq><priority>1</priority></url>
-<url><loc>${brand.url}/sobre</loc><changefreq>monthly</changefreq></url>
-<url><loc>${brand.url}/pedido</loc><changefreq>weekly</changefreq></url>
-<url><loc>${brand.url}/privacidade</loc><changefreq>yearly</changefreq></url>
+<url><loc>${brand.url}/sobre.html</loc><changefreq>monthly</changefreq></url>
+<url><loc>${brand.url}/pedido.html</loc><changefreq>weekly</changefreq></url>
+<url><loc>${brand.url}/privacidade.html</loc><changefreq>yearly</changefreq></url>
 ${products.map((p) => `<url><loc>${brand.url}/produto.html?id=${p.id}</loc><changefreq>weekly</changefreq></url>`).join("\n")}
 </urlset>`
 );

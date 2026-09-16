@@ -28,8 +28,7 @@ export function depth(path) {
 
 export function pretty(path) {
   if (!path || path === "/") return "/";
-  if (path === "/404.html") return "/404.html";
-  return path.replace(/\.html$/, "");
+  return path;
 }
 
 export function rel(fromPath, target) {
