@@ -119,22 +119,23 @@ h1, h2, h3 { margin: 0; line-height: 1.08; }
 /* menu */
 .menu-btn {
   display: none;
-  position: fixed;
-  top: 14px;
-  left: 12px;
-  z-index: 60;
   align-items: center;
   justify-content: center;
-  min-height: 40px;
-  padding: 0 12px;
+  box-sizing: border-box;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0;
   border: 1px solid var(--gold);
   color: var(--gold);
-  letter-spacing: 0.18em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  font-size: 11px;
+  font-size: 10px;
   line-height: 1;
   text-align: center;
-  background: #090909e6;
+  background: transparent;
+  flex-shrink: 0;
 }
 
 .rail {
@@ -239,21 +240,26 @@ h1, h2, h3 { margin: 0; line-height: 1.08; }
 .stage { margin-left: var(--rail); min-height: 100vh; background: var(--stage); }
 .topbar {
   display: none;
+  grid-template-columns: auto minmax(0, 1fr) auto;
   align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 14px 16px 14px 108px;
+  gap: 10px;
+  padding: 10px 16px;
   border-bottom: 1px solid var(--line);
   background: #070707;
+}
+.topbar .wordmark {
+  justify-self: center;
+  min-width: 0;
 }
 .topbar .wordmark span { font-size: 14px; letter-spacing: 0.2em; }
 .top-order {
   border: 1px solid var(--gold);
   color: var(--gold);
-  min-height: 40px;
+  min-height: 44px;
   padding: 0 12px;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
   font-size: 11px;
   letter-spacing: 0.16em;
@@ -1042,20 +1048,21 @@ h1, h2, h3 { margin: 0; line-height: 1.08; }
     text-transform: uppercase;
     font-size: 12px;
   }
-  .menu-btn, .topbar { display: flex; }
+  .topbar {
+    display: grid;
+    padding-top: max(10px, env(safe-area-inset-top));
+    padding-right: max(16px, env(safe-area-inset-right));
+    padding-bottom: 10px;
+    padding-left: max(16px, env(safe-area-inset-left));
+  }
   .menu-btn {
-    top: max(14px, env(safe-area-inset-top));
-    left: max(12px, env(safe-area-inset-left));
-    min-width: 44px;
-    min-height: 44px;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 0 12px 0 14px;
-  }
-  .topbar {
-    padding-top: max(14px, env(safe-area-inset-top));
-    padding-right: max(16px, env(safe-area-inset-right));
-    padding-left: calc(108px + env(safe-area-inset-left));
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    text-indent: 0.12em;
   }
   .topbar .wordmark {
     min-width: 0;
@@ -1067,7 +1074,6 @@ h1, h2, h3 { margin: 0; line-height: 1.08; }
     overflow: hidden;
     text-overflow: ellipsis;
   }
-  body.nav-open .menu-btn { display: none; }
   .rail-backdrop.is-on { display: block; }
   body.nav-open { overflow: hidden; }
   .stage { margin-left: 0; }
@@ -1216,7 +1222,7 @@ h1, h2, h3 { margin: 0; line-height: 1.08; }
   .grid, .related-grid { gap: 12px 8px; }
   .card-body { padding: 10px; }
   .badge { font-size: 9px; padding: 5px 7px; left: 8px; top: 8px; }
-  .topbar { padding-left: calc(96px + env(safe-area-inset-left)); gap: 8px; }
+  .topbar { gap: 8px; }
   .top-order { padding: 0 8px; font-size: 10px; letter-spacing: 0.1em; }
   .hero-rules { letter-spacing: 0.04em; }
   .hero-frame {
