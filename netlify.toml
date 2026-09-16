@@ -2,6 +2,9 @@
   command = "node scripts/build.mjs"
   publish = "dist"
 
+[build.processing.html]
+  pretty_urls = false
+
 [[headers]]
   for = "/*"
   [headers.values]
@@ -24,6 +27,11 @@
   for = "/favicon.svg"
   [headers.values]
     Cache-Control = "public, max-age=86400"
+
+[[headers]]
+  for = "/data/*"
+  [headers.values]
+    Cache-Control = "public, max-age=300, must-revalidate"
 
 [[redirects]]
   from = "/produto"

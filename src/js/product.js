@@ -6,14 +6,28 @@
   if (!mount) return;
 
   const src =
-    document.querySelector('meta[name="products-src"]')?.content || "assets/products.json";
+    document.querySelector('meta[name="products-src"]')?.content || "data/products.json";
+  const catalogUrl = new URL(src, document.baseURI).href;
 
-  fetch(src)
+  function readId() {
+    const q = new URLSearchParams(location.search).get("id");
+    if (q) return q;
+    const hash = location.hash.replace(/^#/, "");
+    if (hash.startsWith("id=")) return decodeURIComponent(hash.slice(3));
+    const path = location.pathname.replace(/\/+$/, "");
+    const m = path.match(/\/produto(?:\.html)?\/([^/]+)$/);
+    if (m) return decodeURIComponent(m[1].replace(/\.html$/, ""));
+    return "";
+  }
+
+  fetch(catalogUrl)
     .then((r) => {
       if (!r.ok) throw new Error("http");
+      const type = r.headers.get("content-type") || "";
+      if (type.includes("text/html")) throw new Error("html");
       return r.json();
     })
-    .then(boot)
+    .then((data) => boot(Array.isArray(data) ? data : data.products || []))
     .catch(() => missing("O catálogo não carregou."));
 
   function missing(lead) {
@@ -26,7 +40,7 @@
   }
 
   function boot(products) {
-  const id = new URLSearchParams(location.search).get("id") || "";
+  const id = readId();
   const product = products.find((p) => p.id === id);
   const moqSame = site.moqSame || 6;
   const moqMix = site.moqMix || 12;

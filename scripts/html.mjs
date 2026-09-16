@@ -136,7 +136,7 @@ export function layout({ brand, title, description, path, image, jsonLd, extraHe
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="${r("assets/styles.css")}">
 <meta name="img-root" content="${r("img/")}">
-<meta name="products-src" content="${r("assets/products.json")}">
+<meta name="products-src" content="${r("data/products.json")}">
 ${extraHead}
 </head>
 <body>
