@@ -8,7 +8,7 @@ Não edite `dist/`. Fonte → `npm run build`.
 
 | O que mudar | Onde |
 |---|---|
-| WhatsApp, MOQ, e-mail, linhas | `data/brand.json` |
+| WhatsApp, MOQ, e-mail, peças | `data/brand.json` |
 | Peça, preço, foto, grade | `data/products.json` |
 | Menu / rodapé HTML | `scripts/html.mjs` |
 | Home | `scripts/pages/home.mjs` |

@@ -311,22 +311,23 @@ h1, h2, h3 { margin: 0; line-height: 1.08; }
 .how {
   list-style: none;
   margin: 36px auto 0;
-  padding: 22px 0 0;
+  padding: 0;
   max-width: 760px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 0;
   text-align: left;
-  border-top: 1px solid var(--line);
+  border: 1px solid var(--line);
+  background: #0c0c0c;
 }
 .how li {
-  padding: 0 22px;
+  position: relative;
+  padding: 22px 20px 24px;
   font-size: 14px;
   color: #a8a299;
   border-right: 1px solid var(--line);
 }
-.how li:first-child { padding-left: 0; }
-.how li:last-child { border-right: 0; padding-right: 0; }
+.how li:last-child { border-right: 0; }
 .how li span {
   display: block;
   color: var(--gold);
@@ -1085,7 +1086,7 @@ h1, h2, h3 { margin: 0; line-height: 1.08; }
   .how li {
     border-right: 0;
     border-bottom: 1px solid var(--line);
-    padding: 16px 0;
+    padding: 18px 16px;
   }
   .how li:last-child { border-bottom: 0; }
   .price-block { grid-template-columns: 1fr; }

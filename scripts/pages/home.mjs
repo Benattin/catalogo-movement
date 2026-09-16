@@ -67,8 +67,8 @@ export function homePage() {
       <p class="kicker">Catálogo atacado</p>
       <p class="hero-lead">Grade e dois preços. O pedido fecha no WhatsApp.</p>
       <p class="hero-rules"><strong>${moqSame} iguais</strong> ou <strong>${moqMix} mistas</strong> no pedido · abaixo disso, vale o varejo</p>
-      <ol class="how">
-        <li><span>01</span><strong>Linha</strong> Moletom, jeans, camiseta ou touca</li>
+      <ol class="how" aria-label="Como pedir">
+        <li><span>01</span><strong>Peça</strong> Moletom, jeans, camiseta ou touca</li>
         <li><span>02</span><strong>Grade</strong> Quantidade por tamanho na ficha</li>
         <li><span>03</span><strong>WhatsApp</strong> Envie pelo <a href="${r("pedido.html")}">Pedido</a></li>
       </ol>
@@ -85,10 +85,10 @@ export function homePage() {
     </div>
     <label class="visually-hidden" for="busca">Buscar</label>
     <input class="search" id="busca" data-search type="search" placeholder="Peça ou cor" autocomplete="off">
-    <nav class="cat-chips" aria-label="Linhas">${catalogChips(brand)}</nav>
+    <nav class="cat-chips" aria-label="Peças">${catalogChips(brand)}</nav>
   </div>
   <div data-catalog>${blocks}</div>
-  <p class="empty-cat" data-empty hidden>Nenhuma peça nesta linha.</p>
+  <p class="empty-cat" data-empty hidden>Nenhuma peça neste filtro.</p>
 </section>
 <section class="wrap faq" id="faq">
   <p class="kicker">Lojista</p>
