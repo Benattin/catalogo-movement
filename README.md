@@ -20,6 +20,7 @@ Não edite `dist/`. Fonte → `npm run build`.
 | Tela do pedido | `src/js/pedido.js` |
 | Visual | `src/css/styles.css` |
 | Fotos | `public/img/` |
+| Checklist mobile | `docs/MOBILE-CHECKLIST.md` |
 
 ```bash
 npm run build

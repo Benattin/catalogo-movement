@@ -1,4 +1,5 @@
 (() => {
+  const lib = window.MJLib || {};
   const site = window.MJ_SITE || {};
   const ldTpl = document.getElementById("json-ld");
   if (ldTpl) {
@@ -15,33 +16,11 @@
   const MOQ_SAME = Number(site.moqSame) || 6;
   const MOQ_MIX = Number(site.moqMix) || 12;
   const WA = site.whatsapp || "";
+  const esc = lib.esc;
+  const money = lib.money;
+  const pieceMeta = lib.pieceMeta;
+  const foldAccents = lib.foldAccents;
 
-  function esc(s) {
-    return String(s)
-      .replaceAll("&", "&amp;")
-      .replaceAll("<", "&lt;")
-      .replaceAll(">", "&gt;")
-      .replaceAll('"', "&quot;");
-  }
-
-  function money(n) {
-    return Number(n).toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
-  }
-
-  function pieceKind(p) {
-    const n = String(p.name || "").toLowerCase();
-    if (n.includes("bermuda")) return "Bermuda";
-    if (n.includes("blusa")) return "Blusa";
-    if (n.includes("calça") || n.includes("calca")) return "Calça";
-    if (n.includes("camiseta")) return "Camiseta";
-    if (n.includes("conjunto")) return "Conjunto";
-    if (n.includes("touca")) return "Touca";
-    return "Peça";
-  }
-
-  function pieceMeta(p) {
-    return p.color ? `MJ ${pieceKind(p)} · ${p.color}` : `MJ ${pieceKind(p)}`;
-  }
   function imgSrc(file) {
     const root = document.querySelector('meta[name="img-root"]')?.content || "img/";
     const name = /\.webp$/i.test(file)
@@ -110,24 +89,46 @@
     writeCart(next.filter((x) => qtyOf(x) > 0));
   }
 
+  function setSizeQty(id, size, qty) {
+    const next = readCart();
+    const i = next.findIndex((x) => x.id === id);
+    if (i < 0) return;
+    const sizes = { ...(next[i].sizes || {}) };
+    const n = Math.max(0, Math.floor(Number(qty) || 0));
+    if (n) sizes[size] = n;
+    else delete sizes[size];
+    next[i] = { ...next[i], sizes };
+    writeCart(next.filter((x) => qtyOf(x) > 0));
+  }
+
+  function bumpSize(id, size, delta) {
+    const item = readCart().find((x) => x.id === id);
+    if (!item) return;
+    setSizeQty(id, size, (Number(item.sizes?.[size]) || 0) + Number(delta || 0));
+  }
+
+  function removeItem(id) {
+    writeCart(readCart().filter((i) => i.id !== id));
+  }
+
   function meetsMoq(items = readCart()) {
     return qtyTotal(items) >= MOQ_MIX || items.some((i) => qtyOf(i) >= MOQ_SAME);
   }
 
   function waUrl(items = readCart()) {
     if (!meetsMoq(items) || !WA) return null;
-    let t = "Olá! Quero fazer este pedido:%0A%0A";
+    const lines = ["Olá! Quero fazer este pedido:", ""];
     items.forEach((item) => {
       const kind = isAtacado(item, items) ? "ATACADO" : "VAREJO";
-      t += `*${item.name}* (${item.sku}) — ${kind}%0A`;
+      lines.push(`*${item.name}* (${item.sku}) — ${kind}`);
       Object.entries(item.sizes).forEach(([size, q]) => {
-        t += `Tamanho ${size}: ${q}%0A`;
+        lines.push(`Tamanho ${size}: ${q}`);
       });
-      t += `Subtotal: ${money(lineTotal(item, items))}%0A%0A`;
+      lines.push(`Subtotal: ${money(lineTotal(item, items))}`, "");
     });
-    t += `Total de peças: ${qtyTotal(items)}%0A`;
-    t += `*Total do pedido: ${money(cartTotal(items))}*`;
-    return `https://wa.me/${WA}?text=${t}`;
+    lines.push(`Total de peças: ${qtyTotal(items)}`);
+    lines.push(`*Total do pedido: ${money(cartTotal(items))}*`);
+    return `https://wa.me/${WA}?text=${encodeURIComponent(lines.join("\n"))}`;
   }
 
   function bindCartBadge() {
@@ -150,6 +151,7 @@
     moqMix: MOQ_MIX,
     money,
     esc,
+    foldAccents,
     imgSrc,
     pieceMeta,
     readCart,
@@ -160,6 +162,9 @@
     lineTotal,
     cartTotal,
     addItem,
+    setSizeQty,
+    bumpSize,
+    removeItem,
     clearCart: () => writeCart([]),
     meetsMoq,
     waUrl,

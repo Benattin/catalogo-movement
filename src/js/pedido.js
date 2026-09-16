@@ -2,6 +2,7 @@
   const api = window.MJ;
   if (!api) return;
   const {
+    bumpSize,
     cartTotal,
     clearCart,
     esc,
@@ -15,8 +16,8 @@
     pieceMeta,
     qtyTotal,
     readCart,
+    removeItem,
     waUrl,
-    writeCart,
   } = api;
 
   const list = document.querySelector("[data-cart-list]");
@@ -37,7 +38,9 @@
     if (summary) summary.hidden = items.length === 0;
     if (actions) actions.hidden = items.length === 0;
     if (!items.length) {
+      list.innerHTML = "";
       send.disabled = true;
+      send.dataset.href = "";
       return;
     }
     list.hidden = false;
@@ -48,8 +51,15 @@
         const unit = atacado ? item.atacado : item.varejo;
         const sizes = Object.entries(item.sizes)
           .map(
-            ([s, q]) =>
-              `<li><span>${esc(s)}</span><span>${q} un</span><span>${money(unit * q)}</span></li>`
+            ([s, q]) => `<li class="cart-size">
+              <span>${esc(s)}</span>
+              <div class="qty cart-qty">
+                <button type="button" class="qty-btn" data-bump="${esc(item.id)}" data-size="${esc(s)}" data-delta="-1" aria-label="Diminuir ${esc(s)}">−</button>
+                <span data-val>${q}</span>
+                <button type="button" class="qty-btn" data-bump="${esc(item.id)}" data-size="${esc(s)}" data-delta="1" aria-label="Aumentar ${esc(s)}">+</button>
+              </div>
+              <span>${money(unit * q)}</span>
+            </li>`
           )
           .join("");
         return `<article class="cart-item">
@@ -87,9 +97,15 @@
   }
 
   list.addEventListener("click", (e) => {
+    const bump = e.target.closest("[data-bump]");
+    if (bump && list.contains(bump)) {
+      bumpSize(bump.dataset.bump, bump.dataset.size, Number(bump.dataset.delta));
+      render();
+      return;
+    }
     const id = e.target.closest("[data-remove]")?.dataset.remove;
     if (!id) return;
-    writeCart(readCart().filter((i) => i.id !== id));
+    removeItem(id);
     render();
   });
 

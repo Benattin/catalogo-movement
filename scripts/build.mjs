@@ -1,5 +1,6 @@
 import { mkdirSync, readdirSync, rmSync } from "node:fs";
 import { join } from "node:path";
+import * as piece from "../shared/piece.mjs";
 import { brand, copy, dist, products, root, write } from "./ctx.mjs";
 import { sitePayload } from "./html.mjs";
 import { homePage } from "./pages/home.mjs";
@@ -16,6 +17,10 @@ write("privacidade.html", privacidadePage());
 write("404.html", notFoundPage());
 write("data/products.json", JSON.stringify(products, null, 2) + "\n");
 write("assets/site.js", `window.MJ_SITE = ${JSON.stringify(sitePayload(brand), null, 2)};\n`);
+write(
+  "assets/lib.js",
+  `(() => {\n${piece.foldAccents.toString()}\n${piece.esc.toString()}\n${piece.money.toString()}\n${piece.pieceKind.toString()}\n${piece.pieceMeta.toString()}\nwindow.MJLib = { esc, money, foldAccents, pieceKind, pieceMeta };\n})();\n`
+);
 
 copy("src/css/styles.css", "assets/styles.css");
 copy("src/js/cart.js", "assets/cart.js");
