@@ -1,4 +1,8 @@
-# Movement — catálogo atacado
+# Movement — catálogo atacado (site novo)
+
+Catálogo estático para lojistas. Não usa o site antigo da Netlify.
+
+**URL:** https://benattin.github.io/catalogo-movement/
 
 Não edite `dist/`. Fonte → `npm run build`.
 
