@@ -152,7 +152,7 @@ ${extraHead}
           ${brand.instagram ? `<p><a href="${esc(brand.instagram)}" rel="noopener noreferrer">Instagram</a></p>` : ""}
         </div>
         <div>
-          <h2>Linhas</h2>
+          <h2>Peças</h2>
           ${footCats}
           <p><a href="${r("sobre.html")}" ${onSobre ? 'aria-current="page"' : ""}>A marca</a></p>
           <p><a href="${r("privacidade.html")}" ${onPrivacidade ? 'aria-current="page"' : ""}>Privacidade</a></p>

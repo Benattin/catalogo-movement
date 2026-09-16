@@ -79,7 +79,7 @@
           <span data-val>0</span>
           <button type="button" class="qty-btn qty-btn-plus" data-plus data-size="${esc(s)}" aria-label="Aumentar ${esc(s)}" ${product.soldOut ? "disabled" : ""}>+</button>
         </div>
-        <span class="meta">${product.soldOut ? "Indisponível" : "Em linha"}</span>
+        <span class="meta">${product.soldOut ? "Indisponível" : "Disponível"}</span>
       </div>`
     )
     .join("");
@@ -180,7 +180,7 @@
     ${sizes}
     <p class="meta" data-pieces>0 peças</p>
     <div class="pdp-actions">
-      <button class="btn btn-full btn-add" data-add type="button" ${product.soldOut ? "disabled" : ""}>${product.soldOut ? "Esgotado" : "Adicionar à linha"}</button>
+      <button class="btn btn-full btn-add" data-add type="button" ${product.soldOut ? "disabled" : ""}>${product.soldOut ? "Esgotado" : "Adicionar peças"}</button>
       <p class="note-add" data-added hidden></p>
       <a class="btn btn-ghost light btn-full" href="pedido.html">Ver pedido</a>
     </div>
@@ -242,7 +242,7 @@
     const n = totalPieces();
     const pieces = root.querySelector("[data-pieces]");
     const add = root.querySelector("[data-add]");
-    if (pieces) pieces.textContent = `${n} peça${n === 1 ? "" : "s"} na linha`;
+    if (pieces) pieces.textContent = `${n} peça${n === 1 ? "" : "s"} selecionada${n === 1 ? "" : "s"}`;
     if (add) {
       add.disabled = product.soldOut;
       add.classList.toggle("is-ready", n > 0 && !product.soldOut);

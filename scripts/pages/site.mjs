@@ -50,7 +50,7 @@ export function sobrePage() {
         <div><dt>Praça</dt><dd>${esc(brand.city)}</dd></div>
         <div><dt>Horário</dt><dd>${esc(brand.hours || "Horário comercial")}</dd></div>
       </dl>
-      <p>Linhas MJ Basic, Signature, Baggy, Legacy, Believe, Arabesco e Canelada. Moletom 3 cabos, jeans 100% algodão, malhão premium.</p>
+      <p>Peças MJ Basic, Signature, Baggy, Legacy, Believe, Arabesco e Canelada. Moletom 3 cabos, jeans 100% algodão, malhão premium.</p>
       <p>Dúvidas de caimento e prazo se resolvem na conversa. E-mail: <a href="mailto:${esc(brand.email)}">${esc(brand.email)}</a>.</p>
       <p class="about-cta"><a class="btn" href="${homeHref("/sobre.html")}#catalogo">Abrir coleção</a> <a class="btn btn-ghost light" href="${rel("/sobre.html", "pedido.html")}">Montar pedido</a></p>
     </div>`,
