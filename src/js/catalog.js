@@ -1,59 +1,46 @@
 (() => {
   const api = window.MJ;
   if (!api) return;
-  const { money, esc, imgSrc, site, pieceMeta } = api;
-  const grid = document.querySelector("[data-grid]");
-  const dataEl = document.getElementById("products-data");
-  if (!grid || !dataEl) return;
+  const mount = document.querySelector("[data-catalog]");
+  if (!mount) return;
 
+  const { site } = api;
   const search = document.querySelector("[data-search]");
   const empty = document.querySelector("[data-empty]");
   const heading = document.querySelector("[data-cat-title]");
   const countEl = document.querySelector("[data-cat-count]");
-  const products = JSON.parse(dataEl.textContent);
-  const labels = Object.fromEntries(
-    (site.categories || []).map((c) => [c.id, c.label])
-  );
+  const labels = Object.fromEntries((site.categories || []).map((c) => [c.id, c.label]));
   labels.todos = labels.todos || "Coleção";
 
   let cat = "todos";
   let q = "";
 
-  function img(file) {
-    return imgSrc(file);
+  function markChips() {
+    document.querySelectorAll("[data-chip]").forEach((el) => {
+      if (el.dataset.chip === cat) el.setAttribute("aria-current", "true");
+      else el.removeAttribute("aria-current");
+    });
   }
 
   function render() {
-    const list = products.filter((p) => {
-      const okCat = cat === "todos" || p.category === cat;
-      const hay = `${p.name} ${p.sku} ${p.color} ${p.line}`.toLowerCase();
-      return okCat && (!q || hay.includes(q));
+    let shown = 0;
+    mount.querySelectorAll(".cat-block").forEach((block) => {
+      const inCat = cat === "todos" || block.dataset.cat === cat;
+      let n = 0;
+      block.querySelectorAll(".card").forEach((card) => {
+        const on = inCat && (!q || (card.dataset.q || "").includes(q));
+        card.hidden = !on;
+        if (on) n++;
+      });
+      block.hidden = n === 0;
+      const count = block.querySelector("[data-block-count]");
+      if (count) count.textContent = `${n} peça${n === 1 ? "" : "s"}`;
+      shown += n;
     });
-    if (empty) empty.hidden = list.length > 0;
+    if (empty) empty.hidden = shown > 0;
     if (heading) heading.textContent = labels[cat] || "Coleção";
-    if (countEl) countEl.textContent = `${list.length} peça${list.length === 1 ? "" : "s"}`;
-    grid.innerHTML = list
-      .map(
-        (p, i) => `
-      <article class="card">
-        <a href="produto.html?id=${esc(p.id)}">
-          <div class="card-media">
-            ${p.soldOut ? `<span class="badge sold">Esgotado</span>` : `<span class="badge">${esc(p.line)}</span>`}
-            <img src="${img(p.hero)}" alt="${esc(p.name)} — ${esc(p.color)}" width="480" height="600" ${i === 0 ? `fetchpriority="high" decoding="async"` : `loading="lazy" decoding="async"`}>
-            <span class="card-go">${p.soldOut ? "Ver peça" : "Ver ficha"}</span>
-          </div>
-          <div class="card-body">
-            <p class="meta">${esc(pieceMeta(p))}</p>
-            <h2>${esc(p.name)}</h2>
-            <div class="prices">
-              <span class="price-a">${money(p.atacado)} <span class="meta">atacado</span></span>
-              <span class="price-v">${money(p.varejo)} varejo</span>
-            </div>
-          </div>
-        </a>
-      </article>`
-      )
-      .join("");
+    if (countEl) countEl.textContent = `${shown} peça${shown === 1 ? "" : "s"}`;
+    markChips();
   }
 
   function applyHash() {

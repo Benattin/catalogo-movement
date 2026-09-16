@@ -1,13 +1,16 @@
 import { copyFileSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { imgAbs, imgName, layout, rel } from "./html.mjs";
+import { imgAbs, imgName, layout, rel, sortProducts } from "./html.mjs";
 
 export const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 export const dist = join(root, "dist");
 
 export const brand = JSON.parse(readFileSync(join(root, "data/brand.json"), "utf8"));
-export const products = JSON.parse(readFileSync(join(root, "data/products.json"), "utf8"));
+export const products = sortProducts(
+  JSON.parse(readFileSync(join(root, "data/products.json"), "utf8")),
+  brand.categories
+);
 
 export const orgLd = {
   "@context": "https://schema.org",

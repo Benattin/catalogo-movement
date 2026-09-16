@@ -3,22 +3,36 @@
   if (!api) return;
   const { addItem, qtyTotal, imgSrc, money, esc, pieceMeta, site } = api;
   const mount = document.querySelector("[data-pdp]");
-  const dataEl = document.getElementById("products-data");
-  if (!mount || !dataEl) return;
+  if (!mount) return;
 
-  const products = JSON.parse(dataEl.textContent);
+  const src =
+    document.querySelector('meta[name="products-src"]')?.content || "assets/products.json";
+
+  fetch(src)
+    .then((r) => {
+      if (!r.ok) throw new Error("http");
+      return r.json();
+    })
+    .then(boot)
+    .catch(() => missing("O catálogo não carregou."));
+
+  function missing(lead) {
+    mount.innerHTML = `<div class="wrap about">
+      <p class="kicker">Ficha</p>
+      <h1>Peça não encontrada</h1>
+      <p class="lead">${lead}</p>
+      <p class="about-cta"><a class="btn" href="index.html">Voltar ao catálogo</a></p>
+    </div>`;
+  }
+
+  function boot(products) {
   const id = new URLSearchParams(location.search).get("id") || "";
   const product = products.find((p) => p.id === id);
   const moqSame = site.moqSame || 6;
   const moqMix = site.moqMix || 12;
 
   if (!product) {
-    mount.innerHTML = `<div class="wrap about">
-      <p class="kicker">Ficha</p>
-      <h1>Peça não encontrada</h1>
-      <p class="lead">Essa peça não está no catálogo.</p>
-      <p class="about-cta"><a class="btn" href="index.html">Voltar ao catálogo</a></p>
-    </div>`;
+    missing("Essa peça não está no catálogo.");
     return;
   }
 
@@ -85,9 +99,11 @@
   document.title = `${product.name} | Movement atacado`;
   const desc = document.querySelector('meta[name="description"]');
   if (desc) desc.setAttribute("content", product.description || "");
+  const catLabel =
+    (site.categories || []).find((c) => c.id === product.category)?.label || product.line;
 
   mount.innerHTML = `
-<nav class="wrap crumbs"><a href="index.html">Catálogo</a> / <a href="index.html#${esc(product.category)}">${esc(product.line)}</a> / ${esc(product.name)}</nav>
+    <nav class="wrap crumbs"><a href="index.html">Catálogo</a> / <a href="index.html#${esc(product.category)}">${esc(catLabel)}</a> / ${esc(product.name)}</nav>
 <article class="wrap pdp" data-product>
   <div class="gallery">
     <div class="gallery-main">
@@ -241,4 +257,5 @@
   });
 
   paint();
+  }
 })();

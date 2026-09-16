@@ -86,8 +86,12 @@ export function productPage() {
     image: absImg(products[0].hero),
     jsonLd: orgLd,
     script: "assets/product.js",
-    body: `<div data-pdp></div>
-<script type="application/json" id="products-data">${JSON.stringify(products)}</script>`,
+    body: `<div data-pdp>
+      <div class="wrap about">
+        <p class="kicker">Ficha</p>
+        <p class="lead">Carregando peça…</p>
+      </div>
+    </div>`,
   });
 }
 

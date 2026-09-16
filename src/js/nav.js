@@ -24,7 +24,8 @@
     const onHome = !/\/(produto|sobre|pedido|privacidade|404)/.test(location.pathname);
     document.querySelectorAll(".rail-nav a[data-cat]").forEach((a) => {
       const cat = a.dataset.cat;
-      const current = onHome && ((cat === "todos" && !hash) || (hash && hash === cat));
+      const all = !hash || hash === "todos" || hash === "catalogo";
+      const current = onHome && ((cat === "todos" && all) || (hash && hash === cat));
       if (current) a.setAttribute("aria-current", "page");
       else a.removeAttribute("aria-current");
     });

@@ -29,10 +29,6 @@
   const hint = document.querySelector("[data-moq-hint]");
   if (!list || !send) return;
 
-  function img(file) {
-    return imgSrc(file);
-  }
-
   function render() {
     const items = readCart();
     const n = qtyTotal(items);
@@ -57,7 +53,7 @@
           )
           .join("");
         return `<article class="cart-item">
-          <img src="${img(item.hero)}" alt="${esc(item.name)}" width="88" height="110">
+          <img src="${imgSrc(item.hero)}" alt="${esc(item.name)}" width="88" height="110">
           <div>
             <p class="meta">${esc(pieceMeta(item))}</p>
             <strong>${esc(item.name)}</strong>
